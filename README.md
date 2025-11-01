@@ -25,4 +25,45 @@ samples, guidance on mobile development, and a full API reference.
 
 Hampir semua elemen yang membentuk UI (teks, tombol, layout, container, dan lain-lain) di flutter diwakili oleh _widget_.
 
-_Widget tree_ adalah representasi hierarki bagaimana widget-widget pada flutter disusun satu sama lain. Tiap _node_ pada _tree_ adalah _widget_, dan hubungan antar-_node_ mencerminkan siapa _parent_ (induk) dan siapa _child_ (anak).
+### Widget tree pada flutter
+
+_Widget tree_ adalah representasi logika bagaimana widget-widget pada flutter disusun satu sama lain, mengatur _rendering_, serta _hit testing (touch interaction)_. Tiap _node_ pada _tree_ adalah _widget_, dan hubungan antar-_node_ mencerminkan siapa _parent_ (induk) dan siapa _child_ (anak).
+
+### Hubungan _parent-child_ (induk-anak) antar-_widget_
+
+* Mengatur Nest (penanaman) widget dalam ```build()```
+
+  Misal dalam kode:
+  
+  ```dart
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      // Membuat kotak kartu dengan bayangan dibawahnya.
+      elevation: 2.0,
+      child: Container(
+        // Mengatur ukuran dan jarak di dalam kartu.
+        width: MediaQuery.of(context).size.width / 3.5, // menyesuaikan dengan lebar device yang digunakan.
+        padding: const EdgeInsets.all(16.0),
+        // Menyusun title dan content secara vertikal.
+        child: Column(
+          children: [
+            Text(
+              title,
+              style: const TextStyle(fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 8.0),
+            Text(content),
+          ],
+        ),
+      ),
+    );
+  }
+  ```
+
+  ```Card``` adalah parent dari ```Container```, berfungsi membungkus semua elemen ```Ccntainer```.
+  ```Container``` adalah parent dari ```Column```, berfungsi mengatur lebar (_width_) dan _padding_ untuk kartu yang akan disusun untuk ```Container```.
+  ```Column``` adalah parent dari ```Text(title)```, ```SizedBox```, ```Text(content)```, berfungsi mengatur widget untuk masing-masing card.
+
+  
+---
