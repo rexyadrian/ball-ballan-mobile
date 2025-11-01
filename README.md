@@ -32,6 +32,10 @@ _Widget tree_ adalah representasi logika bagaimana widget-widget pada flutter di
 ### Hubungan _parent-child_ (induk-anak) antar-_widget_
 
 * Mengatur Nest (penanaman) widget dalam ```build()```
+  Widget _parent_ mengatur widget-widget anaknya. 
+
+* Parent mengatur constraints atau layout child
+  Parent widget memberi batasan (constraints) pada anaknya, misalnya ukuran maksimum/minimum, posisi, alignment. _Child_ kemudian menyesuaikan dirinya sesuai aturan tersebut. Sebagai contoh, ```Row``` dan ```Column``` mengatur bagaimana _child_-nya dibagi ruang letaknya.
 
   Misal dalam kode:
   
@@ -61,9 +65,24 @@ _Widget tree_ adalah representasi logika bagaimana widget-widget pada flutter di
   }
   ```
 
-  ```Card``` adalah parent dari ```Container```, berfungsi membungkus semua elemen ```Ccntainer```.
-  ```Container``` adalah parent dari ```Column```, berfungsi mengatur lebar (_width_) dan _padding_ untuk kartu yang akan disusun untuk ```Container```.
-  ```Column``` adalah parent dari ```Text(title)```, ```SizedBox```, ```Text(content)```, berfungsi mengatur widget untuk masing-masing card.
+  * ```Card``` adalah parent dari ```Container```, berfungsi membungkus semua elemen ```Ccntainer```.
+  * ```Container``` adalah parent dari ```Column```, berfungsi mengatur lebar (_width_) dan _padding_ untuk kartu yang akan disusun untuk ```Container```.
+  * ```Column``` adalah parent dari ```Text(title)```, ```SizedBox```, ```Text(content)```, berfungsi mengatur widget untuk masing-masing card.
 
-  
+## Semua Widget yang Digunakan Dalam Proyek
+
+## Apa fungsi dari widget ```MaterialApp```? Mengapa widget ini sering digunakan sebagai widget root?
+### Fungsi widget ```MaterialApp```
+### Mengapa sering digunakan sebagai widget root?
+
+## Perbedaan ```StatelessWidget``` dan ```StatefulWidget```
+### ```StatelessWidget```
+### ```StatefulWidget```
+
+## ```BuildContext``` pada Flutter
+
+### Penggunaan ```BuildContext``` pada metode ```build```
+
+## Penggunaan "hot reload" pada flutter
+
 ---
