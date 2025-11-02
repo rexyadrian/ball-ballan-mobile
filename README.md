@@ -136,7 +136,7 @@ _Widget tree_ adalah representasi logika bagaimana widget-widget pada flutter di
 
 ### Mengapa sering digunakan sebagai widget root?
 
-Karena ```MaterialApp``` sudah mengatur banyak hal (tema, ```routing```, navigasi, _widget_ dasar, dan lain-lain), menempatkannya di root membuat kode aplikasi lebih terstruktur dan mudah dikembangkan.
+Karena ```MaterialApp``` sudah mengatur banyak hal (tema, _routing_, navigasi, _widget_ dasar, dan lain-lain), menempatkannya di root membuat kode aplikasi lebih terstruktur dan mudah dikembangkan.
 
 ## Perbedaan ```StatelessWidget``` dan ```StatefulWidget```
 
