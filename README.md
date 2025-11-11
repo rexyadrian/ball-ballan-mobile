@@ -183,3 +183,23 @@ Flutter akan:
 * Memanggil kembali fungsi ```main()``` dan membangun ulang seluruh _widget tree_ dari awal.
 
 ---
+
+# Tugas 8
+
+## Perbedaan antara ```Navigator.push()``` dan ```Navigator.pushReplacement()``` pada Flutter
+
+```Navigator``` di flutter digunakan untuk mengatur rute atau halaman dalam suatu aplikasi.
+
+### Navigator.push()
+
+```Navigator.push()``` digunakan untuk menambahkan halaman baru ke atas _stack_ navigasi. Hal ini menyebabkan navigasi tetap menyimpan halaman sebelumnya dengan ```Navigator.pop()``` atau tombol back. Navigator ini cocok digunakan ketika pengguna ingin kembali ke halaman utama atau tidak ingin langsung keluar aplikasi.
+
+### Navigator.pushReplacement()
+
+```Navigator.pushReplacement()``` digunakan untuk mengganti (_replace_) halaman saat ini dengan halaman baru. Halaman lama akan dihapus dari _stack_ sehingga pengguna tidak bisa kembali ke halaman sebelumnya menggunakan back button. Navigator ini cocok digunakan ketika halaman sebelumnya tidak lagi relevan untuk halaman sekarang seperti login ke home, atau splash screen ke main screen.
+
+## Pemanfaatkan Hierarchy Widget: Scaffold, AppBar, dan Drawer Sebagai Struktur Halaman yang Konsisten pada Aplikasi
+
+## Kelebihan Penggunaan Layout Widget seperti Padding, SingleChildScrollView, dan ListView saat Menampilkan Elemen-Elemen Form
+
+## Penyesuaian Warna Tema yang Dilakukan Agar Aplikasi Memiliki Identitas Visual yang Konsisten dengan Brand Toko
