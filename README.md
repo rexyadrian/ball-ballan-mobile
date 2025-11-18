@@ -384,6 +384,33 @@ Jika salah satu konfigurasi tersebut tidak dilakukan dengan benar, berbagai masa
 
 - UI kembali menampilkan halaman login atau menu sesuai status pengguna tidak terautentikasi.
 
+## Mengimplementasikan checklist secara step-by-step.
+
+- Pertama, saya memastikan bahwa proyek Django saya berjalan dengan benar dan tidak mempunyai bug., serta dapat diakses pada browser atau postman.
+
+- Membuat ```django-app``` authentication sebagai penghubung authentication pada Flutter.
+
+- Mengimplementasikan fitur registrasi pada Flutter, kemudian mengirimkan data ke endpoint register Django via HTTP POST.
+
+- Membuat halaman login: form login dan kirim kredensial ke Django.
+
+- Simpan session/cookie di CookieRequest agar request berikutnya bisa terdeteksi sebagai authenticated. Semua request ke endpoint yang membutuhkan autentikasi menggunakan instance ini.
+
+- Membuat model Flutter untuk memetakan data JSON yang diterima dari server.
+
+- Membuat halaman daftar Item:
+
+  - Mengambil data dari endpoint JSON menggunakan HTTP request.
+
+  - mem-parse JSON menjadi model Dart (Item.fromJson).
+
+  - Menampilkan di UI dengan ListView.builder atau grid.
+ 
+  - Membuat ```product_detail.dart``` untuk menampilkan seluruh atribut dari model product.
+
+- Menambahkan filter produk untuk pengguna yang login: saat mengambil data item, hanya ambil item yang terkait dengan user yang sedang login. Validasi dilakukan dengan mencocokkan userId pada JSON, kemudian item yang sesuai dimasukkan ke dalam list produk.
+
+---
 
 
-## Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step! (bukan hanya sekadar mengikuti tutorial).
+ 
