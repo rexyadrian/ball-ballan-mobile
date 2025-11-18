@@ -20,16 +20,17 @@ class ProductDetailPage extends StatelessWidget {
           children: [
             // Thumbnail image
             if (product.thumbnail.isNotEmpty)
-              Image.network(
-                'http://localhost:8000/proxy-image/?url=${Uri.encodeComponent(product.thumbnail)}',
-                width: double.infinity,
-                height: 250,
-                fit: BoxFit.cover,
-                errorBuilder: (context, error, stackTrace) => Container(
-                  height: 250,
-                  color: Colors.grey[300],
-                  child: const Center(
-                    child: Icon(Icons.broken_image, size: 50),
+              AspectRatio(
+                aspectRatio: 1, // Rasio 1:1
+                child: Image.network(
+                  'http://localhost:8000/proxy-image/?url=${Uri.encodeComponent(product.thumbnail)}',
+                  width: double.infinity,
+                  fit: BoxFit.cover,
+                  errorBuilder: (context, error, stackTrace) => Container(
+                    color: Colors.grey[300],
+                    child: const Center(
+                      child: Icon(Icons.broken_image, size: 50),
+                    ),
                   ),
                 ),
               ),
@@ -68,12 +69,25 @@ class ProductDetailPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 12),
 
-                  // Category
+                  // Name
+                  Text(
+                    'Rp${product.price}',
+                    style: const TextStyle(
+                      fontSize: 24.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+
+                  // Category and Brand
                   Row(
                     children: [
+
+                      // Category
                       Container(
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 10.0, vertical: 4.0),
+                            horizontal: 10.0, vertical: 4.0
+                        ),
                         decoration: BoxDecoration(
                           color: Colors.indigo.shade100,
                           borderRadius: BorderRadius.circular(12.0),
@@ -88,13 +102,54 @@ class ProductDetailPage extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(width: 12),
+
+                      // Brand
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10.0, vertical: 4.0
+                        ),
+                        decoration: BoxDecoration(
+                          color: Colors.amber.shade100,
+                          borderRadius: BorderRadius.circular(12.0)
+                        ),
+                        child: Text(
+                          (product.brand == null || product.brand!.isEmpty)
+                              ? "No Brand"
+                              : product.brand.toUpperCase()!,
+                          style: TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.amber.shade800
+                          ),
+                        ),
+                      )
                     ],
                   ),
                   const SizedBox(height: 8),
 
-                  const Divider(height: 32),
+                  const Divider(height: 16),
+
+                  Text(
+                    'Stock: ${product.stock}',
+                    style: const TextStyle(
+                      fontSize: 14.0,
+                      fontWeight: FontWeight.normal,
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
+
+                  const Divider(height: 16),
 
                   // Full description
+                  Text(
+                    'About Product',
+                    style: const TextStyle(
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
+                  
                   Text(
                     product.description,
                     style: const TextStyle(
