@@ -12,10 +12,12 @@ class _ProductFormPageState extends State<ProductFormPage> {
   final _formKey = GlobalKey<FormState>();
   String _name = "";
   int _price = 1;
-  String _category = "other"; // default
   String _description = "";
+  String _category = "other"; // default
   String _thumbnail = "";
-  bool _isFeatured = false; // default
+  bool _isFeatured = false;
+  int _stock = 1;
+  String _brand = "";
 
   final List<String> _categories = [
     'apparel',
@@ -98,38 +100,12 @@ class _ProductFormPageState extends State<ProductFormPage> {
                     }
                     int? parsed = int.tryParse(value);
                     if (parsed == null) {
-                      return "Enter a valid number";
+                      return "Please enter the valid number";
                     }
                     if (parsed <= 0) {
                       return "Price cannot 0";
                     }
                     return null;
-                  },
-                ),
-              ),
-
-              // === Category ===
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: DropdownButtonFormField<String>(
-                  decoration: InputDecoration(
-                    labelText: "Category",
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(5.0),
-                    ),
-                  ),
-                  initialValue: _category,
-                  items: _categories
-                      .map((cat) => DropdownMenuItem(
-                    value: cat,
-                    child: Text(
-                        cat[0].toUpperCase() + cat.substring(1)),
-                  ))
-                      .toList(),
-                  onChanged: (String? newValue) {
-                    setState(() {
-                      _category = newValue!;
-                    });
                   },
                 ),
               ),
@@ -179,6 +155,32 @@ class _ProductFormPageState extends State<ProductFormPage> {
                 ),
               ),
 
+              // === Category ===
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: DropdownButtonFormField<String>(
+                  decoration: InputDecoration(
+                    labelText: "Category",
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                  ),
+                  initialValue: _category,
+                  items: _categories
+                      .map((cat) => DropdownMenuItem(
+                    value: cat,
+                    child: Text(
+                        cat[0].toUpperCase() + cat.substring(1)),
+                  ))
+                      .toList(),
+                  onChanged: (String? newValue) {
+                    setState(() {
+                      _category = newValue!;
+                    });
+                  },
+                ),
+              ),
+
               // === Is Featured ===
               Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -192,6 +194,61 @@ class _ProductFormPageState extends State<ProductFormPage> {
                   },
                 ),
               ),
+
+              // === Stock ===
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextFormField(
+                  decoration: InputDecoration(
+                    hintText: "Stock",
+                    labelText: "Stock",
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                  ),
+                  keyboardType: TextInputType.number,
+                  onChanged: (String value) {
+                    setState(() {
+                      _price = int.tryParse(value) ?? 1;
+                    });
+                  },
+
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return "Stock cannot empty";
+                    }
+                    int? parsed = int.tryParse(value);
+                    if (parsed == null) {
+                      return "Please enter the valid number";
+                    }
+                    if (parsed <= 0) {
+                      return "Stock cannot 0";
+                    }
+                    return null;
+                  },
+                ),
+              ),
+
+
+              // === Brand ===
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextFormField(
+                  decoration: InputDecoration(
+                    hintText: "Product Brand (optional)",
+                    labelText: "Product Brand (optional)",
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                  ),
+                  onChanged: (String? value) {
+                    setState(() {
+                      _brand = value!;
+                    });
+                  },
+                ),
+              ),
+
 
               // === Tombol Simpan ===
               Align(
@@ -223,6 +280,8 @@ class _ProductFormPageState extends State<ProductFormPage> {
                                     Text('About Product: $_description'),
                                     Text('Thumbnail: $_thumbnail'),
                                     Text('Featured: ${_isFeatured ? "Yes" : "No"}'),
+                                    Text('Stock: ${_stock}'),
+                                    Text('Brand: ${_brand}'),
                                   ],
                                 ),
                               ),
