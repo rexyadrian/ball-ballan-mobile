@@ -349,8 +349,41 @@ Jika salah satu konfigurasi tersebut tidak dilakukan dengan benar, berbagai masa
 ## Jelaskan mekanisme autentikasi dari login, register, hingga logout. Mulai dari input data akun pada Flutter ke Django hingga selesainya proses autentikasi oleh Django dan tampilnya menu pada Flutter.
 
 ### Register
+
+- Pengguna mengisi form register di Flutter, seperti username, password, dan konfirmasi password.
+
+- Data dikumpulkan menggunakan controller atau state management, lalu dikirim ke backend melalui HTTP POST request dalam format JSON.
+  
+- Django menerima request, melakukan validasi data (misal memeriksa username, panjang password, dan tipe data), kemudian menyimpan akun baru ke database.
+
+- Setelah berhasil, server mengirimkan response berupa status sukses atau pesan error, yang diterima Flutter, untuk ditampilkan ke notifikasi pengguna.
+
 ### Login
 
+- Pengguna mengisi username dan password pada form login Flutter.
+
+- Flutter mengirimkan request POST ke endpoint login Django.
+  
+- Django akan memverifikasi kredensial, dan jika valid, mengembalikan cookie session (sessionid) yang menandakan pengguna telah login (session-based authentication).
+
+- Di Flutter, cookie ini ditangani oleh instance ```CookieRequest``` sehingga sesi login pengguna tersimpan dan dapat digunakan untuk request berikutnya.
+
+- Flutter kemudian menavigasi pengguna ke halaman utama atau menampilkan menu yang hanya dapat diakses oleh pengguna terautentikasi.
+
+- Setelah login, setiap request ke endpoint yang memerlukan autentikasi akan menyertakan cookie session secara otomatis melalui ```CookieRequest```.
+
+- Backend Django memeriksa session tersebut untuk memastikan request datang dari pengguna yang sah, sehingga data pribadi atau menu khusus pengguna dapat diakses.
+
 ### Logout
+
+- Saat pengguna memilih logout, Flutter mengirimkan request POST ke endpoint logout Django.
+
+- Server akan menghapus session yang terkait dengan pengguna dan mengirim response sukses.
+
+- Di Flutter, cookie session juga dihapus dari ```CookieRequest```, sehingga request berikutnya dianggap sebagai pengguna tidak terautentikasi.
+
+- UI kembali menampilkan halaman login atau menu sesuai status pengguna tidak terautentikasi.
+
+
 
 ## Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step! (bukan hanya sekadar mengikuti tutorial).
