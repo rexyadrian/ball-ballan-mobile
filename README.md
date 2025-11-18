@@ -16,11 +16,11 @@ _Widget tree_ adalah representasi logika bagaimana widget-widget pada flutter di
 
 ### Hubungan _parent-child_ (induk-anak) antar-_widget_
 
-* Mengatur _Nest_ (penanaman) widget dalam ```build()```
+- Mengatur _Nest_ (penanaman) widget dalam ```build()```
 
   Widget _parent_ mengatur widget-widget anaknya. 
 
-* Parent mengatur _constraints_ atau layout _child_
+- Parent mengatur _constraints_ atau layout _child_
   
   _Parent widget_ memberi batasan (_constraints_) pada anaknya, misalnya ukuran maksimum/minimum, posisi, alignment. _Child_ kemudian menyesuaikan dirinya sesuai aturan tersebut. Sebagai contoh, ```Row``` dan ```Column``` mengatur bagaimana _child_-nya dibagi ruang letaknya.
 
@@ -52,67 +52,67 @@ _Widget tree_ adalah representasi logika bagaimana widget-widget pada flutter di
   }
   ```
 
-  * ```Card``` adalah _parent_ dari ```Container```, berfungsi membungkus semua elemen ```Ccntainer```.
-  * ```Container``` adalah _parent_ dari ```Column```, berfungsi mengatur lebar (_width_) dan _padding_ untuk kartu yang akan disusun untuk ```Container```.
-  * ```Column``` adalah _parent_ dari ```Text(title)```, ```SizedBox```, ```Text(content)```, berfungsi mengatur _widget_ untuk masing-masing _card_.
+  - ```Card``` adalah _parent_ dari ```Container```, berfungsi membungkus semua elemen ```Ccntainer```.
+  - ```Container``` adalah _parent_ dari ```Column```, berfungsi mengatur lebar (_width_) dan _padding_ untuk kartu yang akan disusun untuk ```Container```.
+  - ```Column``` adalah _parent_ dari ```Text(title)```, ```SizedBox```, ```Text(content)```, berfungsi mengatur _widget_ untuk masing-masing _card_.
 
 ## Semua Widget yang Digunakan Dalam Proyek
 
 ### Scaffold
 
-* ```Scaffold``` digunakan sebagai layout dasar pada flutter yang digunakan untuk menyediakan struktur _Material Design_ seperti ```AppBar```, ```body```, dan lainnya.
+- ```Scaffold``` digunakan sebagai layout dasar pada flutter yang digunakan untuk menyediakan struktur _Material Design_ seperti ```AppBar```, ```body```, dan lainnya.
 
 ### AppBar (child dari Scaffold)
 
-* ```AppBar``` digunakan untuk menampilkan judul aplikasi dan berfungsi seperti navigation bar pada web.
+- ```AppBar``` digunakan untuk menampilkan judul aplikasi dan berfungsi seperti navigation bar pada web.
 
 ### Body (child dari Scaffold)
 
-* ```Body``` adalah bagian utama yang mengatur konten utama pada aplikasi.
+- ```Body``` adalah bagian utama yang mengatur konten utama pada aplikasi.
 
 ### Widget tampilan UI, layout, dan utilitas
 
-* ```Text```: menampilkan teks.
+- ```Text```: menampilkan teks.
 
-* ```Container``` digunakan sebagai pembungkus layout dan styling pada ```InfoCard``` dan ```ItemCard```
+- ```Container``` digunakan sebagai pembungkus layout dan styling pada ```InfoCard``` dan ```ItemCard```
 
-* ```Padding```: memberi jarak pada konten.
+- ```Padding```: memberi jarak pada konten.
 
-* ```Column```: mengatur susunan widget secara vertikal.
+- ```Column```: mengatur susunan widget secara vertikal.
 
-* ```Row```: mengatur susunan widget secara horizontal.
+- ```Row```: mengatur susunan widget secara horizontal.
 
-* ```MediaQuery```: mengatur ukuran widget agar bersifat responsif menyesuaikan device dengan ukuran yang berbeda-beda.
+- ```MediaQuery```: mengatur ukuran widget agar bersifat responsif menyesuaikan device dengan ukuran yang berbeda-beda.
 
-* ```SizedBox```: memberi jarak vertikal antarelemen, misalnya antara teks dan konten.
+- ```SizedBox```: memberi jarak vertikal antarelemen, misalnya antara teks dan konten.
 
-* ```Center```: menempatkan _child_-nya di posisi tengah.
+- ```Center```: menempatkan _child_-nya di posisi tengah.
 
-* ```GridView```: menyusun Item dalam tampilan _grid_.
+- ```GridView```: menyusun Item dalam tampilan _grid_.
 
-* ```InkWell```: memberi efek klik dan aksi ```onTap()``` saat ditekan.
+- ```InkWell```: memberi efek klik dan aksi ```onTap()``` saat ditekan.
 
-* ```ScaffoldMessenger```: menampilkan ```SnackBar``` (pesan _pop-up_ sementara) ketika ```Card``` ditekan.
+- ```ScaffoldMessenger```: menampilkan ```SnackBar``` (pesan _pop-up_ sementara) ketika ```Card``` ditekan.
 
-* ```SnackBar```: pesan _pop-up_ sementara yang muncul di layar.
+- ```SnackBar```: pesan _pop-up_ sementara yang muncul di layar.
 
-* ```Colors```: memberi warna pada widget (contohnya ```Colors.blue```, ```Colors.white```, ```item.color```).
+- ```Colors```: memberi warna pada widget (contohnya ```Colors.blue```, ```Colors.white```, ```item.color```).
 
-* ```EdgeInsets```: mengatur _padding_ atau _margin_ dari berbagai _widget_.
+- ```EdgeInsets```: mengatur _padding_ atau _margin_ dari berbagai _widget_.
 
-* ```Icon```: menampilkan berbagai jenis _icon_.
+- ```Icon```: menampilkan berbagai jenis _icon_.
 
 ### InfoCard
 
-* ```InfoCard``` adalah kelas yang digunakan untuk membungkus ```Card```
+- ```InfoCard``` adalah kelas yang digunakan untuk membungkus ```Card```
 
 ### Card
 
-* ```Card``` digunakan untuk memberikan tampilan kartu _widget_ yang digunakan di ```InfoCard```
+- ```Card``` digunakan untuk memberikan tampilan kartu _widget_ yang digunakan di ```InfoCard```
 
 ### ItemCard
 
-* ```ItemCard``` digunakan untuk menampilkan ikon + teks dalam _card_, mengatur akses ```SnackBar```, serta mengatur _hit testing_ (ketika widget ditekan) pada ```Card```
+- ```ItemCard``` digunakan untuk menampilkan ikon + teks dalam _card_, mengatur akses ```SnackBar```, serta mengatur _hit testing_ (ketika widget ditekan) pada ```Card```
 
 ## Apa fungsi dari widget ```MaterialApp```? Mengapa widget ini sering digunakan sebagai widget root?
 
@@ -120,17 +120,17 @@ _Widget tree_ adalah representasi logika bagaimana widget-widget pada flutter di
 
 ```MaterialApp``` berfungsi sebagai wadah (_container_ utama) yang menyiapkan:
 
-* Struktur dasar aplikasi _Material Design_
+- Struktur dasar aplikasi _Material Design_
 
   Menyediakan _widget_ dasar untuk aplikasi
 
-* Navigasi antar halaman (routing)
+- Navigasi antar halaman (routing)
   
   Otomatis meneydiakan ```Navigator``` dan ```Route``` di belakang layar
 
-* Tema dan Tampilan Global (warna, font, ikon, dan lain-lain)
+- Tema dan Tampilan Global (warna, font, ikon, dan lain-lain)
 
-* Mengatur Bahasa dan Aksesibilitas Global
+- Mengatur Bahasa dan Aksesibilitas Global
   
   ```MaterialApp``` mendukung sistem ```Localizations``` untuk _multi-language_, serta fitur _accessibility_ seperti _directionality_ (LTR/RTL).
 
@@ -164,13 +164,13 @@ Ketika tombol “r” ditekan pada terminal, atau klik “Hot Reload” di IDE (
 
 Flutter akan:
 
-* Mengompilasi ulang hanya file Dart yang diubah.
+- Mengompilasi ulang hanya file Dart yang diubah.
 
-* Menyuntikkan (_inject_) perubahan kode ke dalam Dart Virtual Machine (VM) yang sedang berjalan.
+- Menyuntikkan (_inject_) perubahan kode ke dalam Dart Virtual Machine (VM) yang sedang berjalan.
 
-* Menjalankan ulang fungsi ```build()``` dari widget yang terpengaruh.
+- Menjalankan ulang fungsi ```build()``` dari widget yang terpengaruh.
 
-* UI langsung diperbarui tanpa menghapus state saat ini.
+- UI langsung diperbarui tanpa menghapus state saat ini.
 
 ### Apa perbedaannya dengan "hot restart"
 
@@ -178,9 +178,9 @@ _Hot Restart_ akan memulai ulang aplikasi dari awal (_reset state_), tetapi tanp
 
 Flutter akan:
 
-* Menghapus semua objek yang ada di memory (_state_),
+- Menghapus semua objek yang ada di memory (_state_),
 
-* Memanggil kembali fungsi ```main()``` dan membangun ulang seluruh _widget tree_ dari awal.
+- Memanggil kembali fungsi ```main()``` dan membangun ulang seluruh _widget tree_ dari awal.
 
 ---
 
@@ -200,42 +200,113 @@ Flutter akan:
 
 ## Pemanfaatkan Hierarchy Widget: Scaffold, AppBar, dan Drawer Sebagai Struktur Halaman yang Konsisten pada Aplikasi
 
-* ```Scaffold``` adalah widget utama yang digunakan sebagai layout dasar dari suatu halaman. Dalam hal ini, ```Scaffold``` digunakan untuk membungkus ```AppBar``` dan ```Drawer```.
+- ```Scaffold``` adalah widget utama yang digunakan sebagai layout dasar dari suatu halaman. Dalam hal ini, ```Scaffold``` digunakan untuk membungkus ```AppBar``` dan ```Drawer```.
   
-* ```AppBar``` berfungsi seperti "navigation bar", yaitu menyediakan fitur-fitur pada aplikasi. Dalam hal ini, saya menggunakan ```AppBar``` untuk menampilkan judul aplikasi. Karena ```AppBar``` diletakkan di dalam ```Scaffold```, saya bisa membuat custom AppBar agar semua halaman punya tampilan header yang konsisten.
+- ```AppBar``` berfungsi seperti "navigation bar", yaitu menyediakan fitur-fitur pada aplikasi. Dalam hal ini, saya menggunakan ```AppBar``` untuk menampilkan judul aplikasi. Karena ```AppBar``` diletakkan di dalam ```Scaffold```, saya bisa membuat custom AppBar agar semua halaman punya tampilan header yang konsisten.
 
-* ```Drawer``` digunakan untuk menyediakan menu navigasi samping yang muncul dari kiri layar. Sangat berguna jika aplikasi punya banyak halaman yang bisa diakses dari mana saja.
+- ```Drawer``` digunakan untuk menyediakan menu navigasi samping yang muncul dari kiri layar. Sangat berguna jika aplikasi punya banyak halaman yang bisa diakses dari mana saja.
 
 ## Kelebihan Penggunaan Layout Widget seperti Padding, SingleChildScrollView, dan ListView saat Menampilkan Elemen-Elemen Form
 
-* ```Padding``` digunakan untuk menambahkan ruang di sekitar widget sehingga form tidak terlalu rapat dan lebih nyaman dibaca.
+- ```Padding``` digunakan untuk menambahkan ruang di sekitar widget sehingga form tidak terlalu rapat dan lebih nyaman dibaca.
 
   Kelebihan:
 
-  * Mencegah elemen form saling menempel.
+  - Mencegah elemen form saling menempel.
 
-  * Mudah diatur secara konsisten di seluruh form.
+  - Mudah diatur secara konsisten di seluruh form.
 
-* ```SingleChildScrollView``` memungkinkan konten bisa digulir (scrollable) ketika layar tidak cukup untuk menampilkan semua elemen form.
+- ```SingleChildScrollView``` memungkinkan konten bisa digulir (scrollable) ketika layar tidak cukup untuk menampilkan semua elemen form.
 
   Kelebihan:
 
-  * Form tetap bisa diakses penuh di layar kecil atau saat keyboard muncul.
+  - Form tetap bisa diakses penuh di layar kecil atau saat keyboard muncul.
 
-  * Mengurangi error overflow (RenderFlex overflowed) yang sering muncul saat keyboard muncul.
+  - Mengurangi error overflow (RenderFlex overflowed) yang sering muncul saat keyboard muncul.
 
-  * Mudah membungkus satu kolom form panjang.
+  - Mudah membungkus satu kolom form panjang.
  
-* ```ListView``` berfungsi seperti ```Column```, tetapi _scrollable_ secara default, dan bisa lebih efisien untuk form yang panjang karena mendukung _lazy loading_ (hanya widget yang terlihat di layar yang dirender).
+- ```ListView``` berfungsi seperti ```Column```, tetapi _scrollable_ secara default, dan bisa lebih efisien untuk form yang panjang karena mendukung _lazy loading_ (hanya widget yang terlihat di layar yang dirender).
 
   Kelebihan:
 
-  * Tidak perlu membungkus ```Column``` dengan ```SingleChildScrollView```.
+  - Tidak perlu membungkus ```Column``` dengan ```SingleChildScrollView```.
 
-  * Bisa menambahkan banyak elemen form tanpa khawatir _overflow_.
+  - Bisa menambahkan banyak elemen form tanpa khawatir _overflow_.
 
-  * Mudah menambahkan separator atau divider antarelemen.
+  - Mudah menambahkan separator atau divider antarelemen.
 
 ## Penyesuaian Warna Tema yang Dilakukan Agar Aplikasi Memiliki Identitas Visual yang Konsisten dengan Brand Toko
 
 Dalam menyesuaikan warna tema aplikasi "Ball-Ballan" agar sejalan dengan identitas visual brand, saya menetapkan tema warna yang mencerminkan identitas toko. Dalam hal ini,saya menggunakan warna biru dengan _shade_ 900 sebagai warna utama dan biru dengan _shade_ 400 sebagai aksen. Kemudian, warna-warna ini diterapkan secara konsisten di seluruh komponen aplikasi melalui ```ThemeData``` pada ```MaterialApp```, termasuk ```AppBar```, tombol, dan latar belakang. Pendekatan ini memastikan setiap halaman memiliki tampilan yang seragam dan mudah dikenali sebagai bagian dari brand "Ball-Ballan".
+
+---
+
+# Tugas 9
+
+## Jelaskan mengapa kita perlu membuat model Dart saat mengambil/mengirim data JSON? Apa konsekuensinya jika langsung memetakan ```Map<String, dynamic>``` tanpa model (terkait validasi tipe, null-safety, maintainability)?
+
+### Alasan kita perlu membuat model Dart saat mengambil/mengirim data JSON
+
+- **Tipe aman (type-safe)**
+  
+  Dart akan memeriksa tipe data pada saat compile. Misal **user_id** harus int, kalau data dari JSON ternyata String, maka kita bisa mengetahuinya dan mengatasi eror dengan lebih mudah.
+
+- **_Null-safety_ lebih mudah diterapkan**
+
+  Kita bisa tandai properti sebagai required atau nullable String?, sehingga lebih aman terhadap null.
+
+- **Maintainability & readability**
+
+  Code lebih jelas, misalnya ```product.name``` jauh lebih readable daripada ```json['name']```. Hal ini juga mempermudah menambahkan validasi atau logika tambahan di model (misal validasi harga > 0).
+
+- **Konversi pada satu tempat**
+
+  Semua logika parsing JSON ada di satu class (fromJson & toJson), sehingga memudahkan _debugging_.
+
+### konsekuensinya jika langsung memetakan ```Map<String, dynamic>``` tanpa model
+
+- **Tidak ada tipe pengecekan compile-time**
+
+  ```json['price']``` bisa saja null atau tipe yang salah, baru ketahuan saat runtime → rentan crash.
+
+- **Null-safety lebih sulit diterapkan**
+
+  Kita harus selalu pakai ```json['name'] ?? ''``` atau ```as String?```.
+
+- **Kurang readable & maintainable**
+
+  Kalau JSON kompleks (nested object, list), code akan penuh ```json['key']['subkey'][i]```. Hal ini juga memengaruhi proses _debugging_.
+
+- **Sulit menambahkan validasi atau logika tambahan**
+
+  Misal ingin cek price > 0, harus selalu ingat tiap kali akses Map, sedangkan jika kita menggunakan model, logika bisa di-handle di constructor.
+
+- **Refactoring sulit**
+
+  Kalau key JSON berubah, misal (price menjadi cost), semua akses Map harus dicari dan diganti manual, sedangkan model cukup update di ```fromJson```.
+
+
+## Apa fungsi package http dan CookieRequest dalam tugas ini? Jelaskan perbedaan peran http vs CookieRequest.
+
+### Fungsi package http dan CookieRequest
+
+- Package ```http``` adalah package standar di Flutter/Dart untuk melakukan HTTP request (GET, POST, PUT, DELETE) ke server. Fungsinya yaitu mengirim request dan menerima response, biasanya berupa JSON.
+
+- Package ```CookieRequest``` berfungsi mengelola cookie secara otomatis, termasuk session login Django. Karena itu, package inicocok untuk aplikasi yang memerlukan autentikasi berbasis session cookie. Package ini juga digunakan untuk mengintegrasikan authentication pada Django dan Flutter.
+
+### Perbedaan http dan CookieRequest
+
+- Tipe request http berupa stateless (GET/POST/PUT/DELETE), sedangkan CookieRequest berupa stateful (cookie.session).
+  
+- Use case: http digunakan untuk mengambil data publik (JSON), CookieRequest digunakan untuk endpoint login, profile, aksi yang butuh login
+
+## Jelaskan mengapa instance CookieRequest perlu untuk dibagikan ke semua komponen di aplikasi Flutter.
+
+## Jelaskan konfigurasi konektivitas yang diperlukan agar Flutter dapat berkomunikasi dengan Django. Mengapa kita perlu menambahkan 10.0.2.2 pada ALLOWED_HOSTS, mengaktifkan CORS dan pengaturan SameSite/cookie, dan menambahkan izin akses internet di Android? Apa yang akan terjadi jika konfigurasi tersebut tidak dilakukan dengan benar?
+
+## Jelaskan mekanisme pengiriman data mulai dari input hingga dapat ditampilkan pada Flutter.
+
+## Jelaskan mekanisme autentikasi dari login, register, hingga logout. Mulai dari input data akun pada Flutter ke Django hingga selesainya proses autentikasi oleh Django dan tampilnya menu pada Flutter.
+
+## Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step! (bukan hanya sekadar mengikuti tutorial).
