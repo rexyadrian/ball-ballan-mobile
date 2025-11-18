@@ -183,3 +183,59 @@ Flutter akan:
 * Memanggil kembali fungsi ```main()``` dan membangun ulang seluruh _widget tree_ dari awal.
 
 ---
+
+# Tugas 8
+
+## Perbedaan antara ```Navigator.push()``` dan ```Navigator.pushReplacement()``` pada Flutter
+
+```Navigator``` di flutter digunakan untuk mengatur rute atau halaman dalam suatu aplikasi.
+
+### Navigator.push()
+
+```Navigator.push()``` digunakan untuk menambahkan halaman baru ke atas _stack_ navigasi. Hal ini menyebabkan navigasi tetap menyimpan halaman sebelumnya dengan ```Navigator.pop()``` atau tombol back. Navigator ini cocok digunakan ketika pengguna ingin kembali ke halaman utama atau tidak ingin langsung keluar aplikasi.
+
+### Navigator.pushReplacement()
+
+```Navigator.pushReplacement()``` digunakan untuk mengganti (_replace_) halaman saat ini dengan halaman baru. Halaman lama akan dihapus dari _stack_ sehingga pengguna tidak bisa kembali ke halaman sebelumnya menggunakan back button. Navigator ini cocok digunakan ketika halaman sebelumnya tidak lagi relevan untuk halaman sekarang seperti login ke home, atau splash screen ke main screen.
+
+## Pemanfaatkan Hierarchy Widget: Scaffold, AppBar, dan Drawer Sebagai Struktur Halaman yang Konsisten pada Aplikasi
+
+* ```Scaffold``` adalah widget utama yang digunakan sebagai layout dasar dari suatu halaman. Dalam hal ini, ```Scaffold``` digunakan untuk membungkus ```AppBar``` dan ```Drawer```.
+  
+* ```AppBar``` berfungsi seperti "navigation bar", yaitu menyediakan fitur-fitur pada aplikasi. Dalam hal ini, saya menggunakan ```AppBar``` untuk menampilkan judul aplikasi. Karena ```AppBar``` diletakkan di dalam ```Scaffold```, saya bisa membuat custom AppBar agar semua halaman punya tampilan header yang konsisten.
+
+* ```Drawer``` digunakan untuk menyediakan menu navigasi samping yang muncul dari kiri layar. Sangat berguna jika aplikasi punya banyak halaman yang bisa diakses dari mana saja.
+
+## Kelebihan Penggunaan Layout Widget seperti Padding, SingleChildScrollView, dan ListView saat Menampilkan Elemen-Elemen Form
+
+* ```Padding``` digunakan untuk menambahkan ruang di sekitar widget sehingga form tidak terlalu rapat dan lebih nyaman dibaca.
+
+  Kelebihan:
+
+  * Mencegah elemen form saling menempel.
+
+  * Mudah diatur secara konsisten di seluruh form.
+
+* ```SingleChildScrollView``` memungkinkan konten bisa digulir (scrollable) ketika layar tidak cukup untuk menampilkan semua elemen form.
+
+  Kelebihan:
+
+  * Form tetap bisa diakses penuh di layar kecil atau saat keyboard muncul.
+
+  * Mengurangi error overflow (RenderFlex overflowed) yang sering muncul saat keyboard muncul.
+
+  * Mudah membungkus satu kolom form panjang.
+ 
+* ```ListView``` berfungsi seperti ```Column```, tetapi _scrollable_ secara default, dan bisa lebih efisien untuk form yang panjang karena mendukung _lazy loading_ (hanya widget yang terlihat di layar yang dirender).
+
+  Kelebihan:
+
+  * Tidak perlu membungkus ```Column``` dengan ```SingleChildScrollView```.
+
+  * Bisa menambahkan banyak elemen form tanpa khawatir _overflow_.
+
+  * Mudah menambahkan separator atau divider antarelemen.
+
+## Penyesuaian Warna Tema yang Dilakukan Agar Aplikasi Memiliki Identitas Visual yang Konsisten dengan Brand Toko
+
+Dalam menyesuaikan warna tema aplikasi "Ball-Ballan" agar sejalan dengan identitas visual brand, saya menetapkan tema warna yang mencerminkan identitas toko. Dalam hal ini,saya menggunakan warna biru dengan _shade_ 900 sebagai warna utama dan biru dengan _shade_ 400 sebagai aksen. Kemudian, warna-warna ini diterapkan secara konsisten di seluruh komponen aplikasi melalui ```ThemeData``` pada ```MaterialApp```, termasuk ```AppBar```, tombol, dan latar belakang. Pendekatan ini memastikan setiap halaman memiliki tampilan yang seragam dan mudah dikenali sebagai bagian dari brand "Ball-Ballan".
