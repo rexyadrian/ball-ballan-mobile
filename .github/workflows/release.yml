@@ -50,7 +50,7 @@ jobs:
         run: |
           for apk in build/app/outputs/flutter-apk/*.apk; do
             echo "Signing $apk..."
-            jarsigner -verbose -sigalg SHA256withRSA -digestalg SHA-256 \
+            $ANDROID_HOME/build-tools/$(ls $ANDROID_HOME/build-tools | sort -V | tail -n1)/apksigner sign \
               -keystore release-keystore.jks \
               -storepass "${{ secrets.KEY_PASSWORD }}" \
               -keypass "${{ secrets.KEY_PASSWORD }}" \
